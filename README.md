@@ -1,11 +1,27 @@
-# Netatmo API test
+# API de récuperation de mesures de températures d’une station publique
 
-![Home page](./client/public/home.png?raw=true "Home page")
+## Description :
 
-### client: the client folder => http://localhost:3000
+Cette API permet de récuperer les mesures de températures d'une station Netatmo publique cours des 7 derniers jours, puis de calculer et renvoyer des statistiques telles que les valeurs minimales, maximales et la moyenne de la température.
 
-### server: the root directory => http://localhost:4000
+## Endpoint :
 
-### In the .env file you can complete the TOKEN_AUTH and NUMBER_DEV
+### http://localhost:4000/api/public-station-temperature
 
-### enjoy ;)
+Pour utiliser cette API, envoyez une requête GET à cet endpoint.
+
+## Authentification :
+
+L'API nécessite une authentification via un jeton d'accès. Assurez-vous d'inclure un en-tête d'autorisation (`Authorization: Bearer YOUR_ACCESS_TOKEN`) dans votre requête.
+
+## Réponse :
+
+Exemple de réponse :
+
+```json
+{
+  "minTemperature": 12.4,
+  "maxTemperature": 20.9,
+  "averageTemperature": 15.729296875000019
+}
+```
